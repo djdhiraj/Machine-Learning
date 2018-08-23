@@ -1,1 +1,2 @@
 # DecisionTree_Vs_RandomForest
+As is implied by the names "Tree" and "Forest," the two concepts are similar. A Random Forest is essentially a collection of Decision Trees. A decision tree is built on an entire dataset, using all the features/variables of interest, whereas a random forest randomly selects observations/rows and specific features/variables to build multiple decision trees from and then averages the results.
