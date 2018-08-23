@@ -3,8 +3,8 @@ As is implied by the names "Tree" and "Forest," the two concepts are similar. A 
 
 When to use to decision tree:
 
-1) When you want your model to be simple and explainable
-2) When you want non parametric model
+1) When you want your model to be simple and explainable.
+2) When you want non parametric model.
 3) When you don't want to worry about feature selection or regularization or worry about multi-collinearity.
 4) You can overfit the tree and build a model if you are sure of validation or test data set is going to be subset of training data set or    almost overlapping instead of unexpected.
 
