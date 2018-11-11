@@ -107,6 +107,25 @@ partition <- function(df, n, probs) {
 }
 random_cars <- cars %>% partition(4, c(training = 0.5, test = 0.5))
 random_cars %>% prediction_accuracy_cars
+library(rpart)
+model <- cars %>% rpart(dist ~ speed, data = .)
+rmse(predict(model, cars), cars$dist)
+
+library(party)
+model <- cars %>% ctree(dist ~ speed, data = .)
+rmse(predict(model, cars), cars$dist)
+cars %>% ctree(dist ~ speed, data = .) %>% plot
+library(randomForest)
+model <- cars %>% randomForest(dist ~ speed, data = .)
+rmse(predict(model, cars), cars$dist)
+library(nnet)
+
+model <- cars %>% nnet(dist ~ speed, data = ., size = 5)
+rmse(predict(model, cars), cars$dist)
+library(kernlab)
+model <- cars %>% ksvm(dist ~ speed, data = .)
+rmse(predict(model, cars), cars$dist)
+
 
 
 
