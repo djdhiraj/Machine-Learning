@@ -19,3 +19,31 @@ table(formatted_data$Class, classified,
       dnn=c("Data", "Predictions"))
 confusion_matrix <- table(formatted_data$Class, classified,dnn=c("Data", "Predictions"))
 (accuracy <- sum(diag(confusion_matrix))/sum(confusion_matrix))
+table(BreastCancer$Class)
+tbl <- table(BreastCancer$Class)
+tbl["benign"] / sum(tbl)
+table(BreastCancer$Class, sample(BreastCancer$Class))
+accuracy <- function(confusion_matrix)
+ sum(diag(confusion_matrix))/sum(confusion_matrix)
+replicate(8, accuracy(table(BreastCancer$Class,
+ sample(BreastCancer$Class))))
+(specificity <- confusion_matrix[1,1]/
+ (confusion_matrix[1,1] + confusion_matrix[1,2]))
+(sensitivity <- confusion_matrix[2,2]/
+ (confusion_matrix[2,1] + confusion_matrix[2,2]))
+specificity <- function(confusion_matrix)
+ confusion_matrix[1,1]/(confusion_matrix[1,1]+confusion_matrix[1,2])
+sensitivity <- function(confusion_matrix)
+ confusion_matrix[2,2]/(confusion_matrix[2,1]+confusion_matrix[2,2])
+prediction_summary <- function(confusion_matrix)
+ c("accuracy" = accuracy(confusion_matrix),
+ "specificity" = specificity(confusion_matrix),
+ "sensitivity" = sensitivity(confusion_matrix))
+random_prediction_summary <- function()
+ prediction_summary(table(BreastCancer$Class,
+ sample(BreastCancer$Class)))
+replicate(3, random_prediction_summary())
+confusion_matrix[2,1] / sum(confusion_matrix[,1])
+confusion_matrix[1,1] / sum(confusion_matrix[,1])
+confusion_matrix[2,2] / sum(confusion_matrix[,2])
+confusion_matrix[1,2] / sum(confusion_matrix[,2])
