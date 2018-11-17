@@ -1,3 +1,36 @@
+raw_breast_cancer <- read.csv(data_url)
+raw_breast_cancer %>% head(3)
+raw_breast_cancer <- read.csv(data_url, header = FALSE)
+raw_breast_cancer %>% head(3)
+names(raw_breast_cancer) <- names(BreastCancer)
+raw_breast_cancer %>% head(3)
+raw_breast_cancer <- read.csv(data_url, header = FALSE,
+col.names = names(BreastCancer))
+raw_breast_cancer %>% head(3)
+map_class <- function(x) {
+ifelse(x == 2, "bening",
+ifelse(x == 4, "malignant",
+NA))
+}
+mapped <- formatted_breast_cancer$Class %>% map_class
+mapped %>% table
+map_class <- function(x) {
+ifelse(x == 2, "bening", "malignant")
+}
+mapped <- formatted_breast_cancer$Class %>% map_class
+mapped %>% table
+dict <- c("2" = "benign", "4" = "malignant")
+map_class <- function(x) dict[as.character(x)]
+mapped <- formatted_breast_cancer$Class %>% map_class
+mapped %>% table
+mapped %<>% unname
+raw_breast_cancer$Class %>%
+{ dict <- c("2" = "benign", "4" = "malignant")
+dict[as.character(.)]
+} %>%
+unname %>%
+factor(levels = c("benign", "malignant")) %>%
+table
 formatted_data <- BreastCancer %>%
   mutate(Cl.thickness.numeric =
            as.numeric(as.character(Cl.thickness)),
