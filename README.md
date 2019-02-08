@@ -12,3 +12,63 @@ As is implied by the names "Tree" and "Forest," the two concepts are similar. A 
 
 1) When you don't bother much about interpreting the model but want better accuracy.
 2) Random forest will reduce variance part of error rather than bias part, so on a given training data set decision tree may be more          accurate than a random forest. But on an unexpected validation data set, Random forest always wins in terms of accuracy.
+
+# TensorFlow main Classes
+* tf.Graph()
+* tf.Operation()
+* tf.Tensor()
+* tf.Session()
+
+
+# Some Useful funtions:
+* tf.get_default_session()
+* tf.get_default_graph()
+* tf.reset_default_graph()
+* ops.reset_default_graph()
+* tf.device("/cpu:0")
+* tf.name_scope(value)
+
+# TensorFlow Optimizers
+* GradientDescentOptimizer
+* AdagradOptimizer 
+* AdagradOptimizer
+* MomentumOptimizer
+* AdamOptimizer
+* FtrlOptimizer
+* RMSPropOptimizer
+
+# Reduction 
+* reduce_sum
+* reduce_prod
+* reduce_min
+* reduce_max
+* reduce_mean
+* reduce_all
+* reduce_any
+* accumulate_n
+* Activation Functins 
+* tf.nn?
+* relu
+* relu6
+* elu
+* softplus 
+* dropsign
+* dropout
+* bias_add
+* sigmoid 
+* tanh 
+* sigmoid_cross_entropy_with_logits
+* softmax
+* log_softwax
+* softwax_tf.convert_to_tensor(value)
+
+
+
+# Skflow main classes
+* TensorFlowClassifier
+* TensorFlowRegressor
+* TensorFlowDNNRegressor
+* TensorFlowLinearClassifier
+* TensorFlowLinearRegressor
+* TensorFlowRNNClassifier
+* TensorFlowRNNRegressor
