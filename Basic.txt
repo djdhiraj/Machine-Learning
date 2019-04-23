@@ -22,3 +22,16 @@ make_password(password, salt=None, hasher='default')
 
 
 is_password_usable(encoded_password)
+
+
+
+
+In this article, we explain verbose_name and verbose_name_plural in Django.
+
+So both verbose_name and verbose_name_plural are ways of making objects human readable or converting to a point where they are human readable.
+
+A notable place where verbose_name and verbose_name_plural can apply to is objects in a database table.
+
+In Python, all rows of data in a database table are objects.
+
+In Python, pretty much almost everything is an object, including strings, integers, and so on.
