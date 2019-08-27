@@ -8,6 +8,13 @@ students = Table(
    Column('name', String), 
    Column('lastname', String), 
 )
+
+classes = Table(
+   'classes', meta, 
+   Column('id', Integer, primary_key = True), 
+   Column('Class_name', String), 
+   Column('student_id', Integer),
+)
 meta.create_all(engine)
 ins = students.insert()
 
@@ -18,6 +25,18 @@ conn.execute(students.insert(), [
    {'name':'Abdul','lastname' : 'Sattar'},
    {'name':'Priya','lastname' : 'Rajhans'},
 ])
+conn.close()
+
+ins = classes.insert()
+
+conn = engine.connect()
+conn.execute(classes.insert(), [
+   {'Class_name':'10th', 'student_id' : 1},
+   {'Class_name':'9th','student_id' : 2},
+   {'Class_name':'12th','student_id' : 3},
+   {'Class_name':'5th','student_id' : 4},
+])
+
 
 s = students.select()
 conn = engine.connect()
